@@ -1,0 +1,28 @@
+server:
+  port: 3333
+  resources:
+    static-locations: classpath:/static/
+ 
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: welcome-api
+        uri: lb://WELCOME-API
+        predicates:
+        - Path=/welcome
+      - id: greet-api
+        uri: lb://GREET-API
+        predicates:
+        - Path=/greet
+        
+   
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090/
+  
+  application:
+    name: CLOUD-API-GATEWAY
+    

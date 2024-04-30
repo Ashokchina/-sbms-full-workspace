@@ -1,0 +1,15 @@
+# application.yml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 2222
+spring:
+  application:
+    name: Greet-Api
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090/

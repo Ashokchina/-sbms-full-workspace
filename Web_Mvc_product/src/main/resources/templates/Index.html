@@ -1,0 +1,35 @@
+!DOCTYPE html>
+<html>
+<head>
+<title>Product Management System </title>
+</head>
+<body>
+
+<h1>product info</h1>
+<table>
+	<thead>
+		<tr>
+			<th>ProductId</th>
+			<th>ProductName</th>
+			<th>Productprice</th>
+		</tr>
+		
+	</thead>
+	<tbody>
+		<tr th:each="product : {listproducts}">
+			
+			<td th:text="${product.productid}"></td>
+			<td th:text="${product.productname}"></td>
+			<td th:text="${product.productproce}"></td>
+			<tr th:if="${product.isEmpty()}">
+					<td colspan="4">No Records Found</td>
+				</tr>
+		</tr>
+		
+		
+	</tbody>
+	
+</table>
+
+</body>
+</html>

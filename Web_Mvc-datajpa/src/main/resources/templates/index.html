@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Book Management System</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<h1>Books list</h1>
+				<a href="/shownewBookForm" class="btn btn-primary mb-3">Add New Book</a>
+
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th>Book_Id</th>
+					<th>Book_Name</th>
+					<th>Book_Price</th>
+					<th>Book_Author</th>
+					<th>Action</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="book : ${listBooks}">
+					<td th:text="${book.bookid}"></td>
+					<td th:text="${book.bookname}"></td>
+					<td th:text="${book.bookprice}"></td>
+					<td th:text="${book.bookauthor}"></td>
+					
+					<td>
+						<a th:href="@{/ShowFormForUpdate/{bookid}(bookid=${book.bookid})}" class="btn btn-secondary">Update</a>
+						<a th:href="@{/DeleteBookById/{bookid}(bookid=${book.bookid})}" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+				<tr th:if="${listBooks.isEmpty()}">
+					<td colspan="4">No Records Found</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+</body>
+
+</html>
